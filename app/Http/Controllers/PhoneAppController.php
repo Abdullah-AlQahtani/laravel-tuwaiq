@@ -53,13 +53,28 @@ class PhoneAppController extends Controller
 
     public function getInvoice(Request $request)  {
 
-        dd($request);
-        echo $request->fullname;
-        echo "<br>";
-        echo $request->email;
-        echo "<br>";
-        echo $request->address;
-        echo "<br>";
+        // dd($request);
+        // echo $request->fullname;
+        // echo "<br>";
+        // echo $request->email;
+        // echo "<br>";
+        // echo $request->address;
+        // echo "<br>";
+
+
+        $invoice = [
+            'fullname' => $request->fullname,
+            'email' => $request->email,
+            'address' => $request->address,
+            'product_name' => $request->product_name,
+            'product_description' => $request->product_description,
+            'price' => $request->price,
+            'vat' => $request->vat,
+            'total' => $request->total,
+        ];
+    
+         
+        return view('invoice', ["invoice"=>$invoice]);
 
         // $query = DB::table('purchases')->insert([
         //     'name' => $request->fullname,

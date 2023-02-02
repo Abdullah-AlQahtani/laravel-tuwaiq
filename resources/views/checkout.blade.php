@@ -28,7 +28,7 @@
         </li>
         <li class="list-group-item d-flex justify-content-between">
           <span>Total (SAR)</span>
-          <strong>{{ $price + $vat }} </strong>
+          <strong>{{$total =  $price + $vat }} </strong>
         </li>
       </ul>
 
@@ -71,6 +71,11 @@
 
         <div class="mb-3">
           <input type="text" class="form-control d-none" name="product_id" id="product_id" value="{{$product->id}}">
+          <input type="text" class="form-control d-none" name="product_name" id="product_name" value="{{$product->name}}">
+          <input type="text" class="form-control d-none" name="product_description" id="product_description" value="{{$product->description}}">
+          <input type="text" class="form-control d-none" name="price" id="price" value="{{$price}}">
+          <input type="text" class="form-control d-none" name="vat" id="vat" value="{{$vat}}">
+          <input type="text" class="form-control d-none" name="total" id="total" value="{{$total}}">
         </div>
 
         <div class="text-center">
