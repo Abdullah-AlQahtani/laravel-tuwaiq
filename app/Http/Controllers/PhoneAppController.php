@@ -61,6 +61,7 @@ class PhoneAppController extends Controller
         // echo $request->address;
         // echo "<br>";
 
+        $invoice_id = rand(0,999);
 
         $invoice = [
             'fullname' => $request->fullname,
@@ -71,6 +72,7 @@ class PhoneAppController extends Controller
             'price' => $request->price,
             'vat' => $request->vat,
             'total' => $request->total,
+            'invoice_id' => $invoice_id,
         ];
     
          
