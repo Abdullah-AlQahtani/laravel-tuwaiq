@@ -9,6 +9,11 @@
     <div class="card-body">
       <div class="container mb-5 mt-3">
         <div class="row d-flex align-items-baseline">
+        @if(Session::has('message'))
+            <div class="col-xl-9 d-flex justify-content-center">
+                <div class="alert alert-success">{{ Session::get('message') }}</div>
+              </div>
+        @endif
           <div class="col-xl-9">
             <p style="color: #7e8d9f;font-size: 20px;">Invoice >> <strong>ID: #{{ $invoice['invoice_id'] }}</strong></p>
           </div>

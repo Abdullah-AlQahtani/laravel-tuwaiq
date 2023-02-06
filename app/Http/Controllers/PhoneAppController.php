@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
+
 
 class PhoneAppController extends Controller
 {
@@ -74,17 +76,33 @@ class PhoneAppController extends Controller
             'total' => $request->total,
             'invoice_id' => $invoice_id,
         ];
+
+
+
+        $query = DB::table('customers_invoices')->insert([
+            'name' => $request->fullname,
+            'email' => $request->email,
+            'address' => $request->address,
+            'product_id' => $request->product_id,
+            'price' => $request->price,
+            'vat' => $request->vat,
+            'total' => $request->total
+        ]);
     
+        if ($query > 0) {
+            Session::flash('message', 'Invoice was created successfully!');
+        } else {
+            Session::flash('error', 'Invoice was not created successfully!');
+            // return redirect()->back();
+        }
          
         return view('invoice', ["invoice"=>$invoice]);
 
-        // $query = DB::table('purchases')->insert([
-        //     'name' => $request->fullname,
-        //     'email' => $request->email,
-        //     'address' => $request->address,
-        //     'product_id' => $request->product_id
-        // ]);
         
     }
 
+    public function pay() {
+
+    }
+    
 }

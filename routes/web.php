@@ -19,6 +19,18 @@ Route::get('/', function () {
 
 })->name('welcome');
 
+Route::get('/login', function () {
+
+    return view('auth.login');
+
+})->name('login');
+
+Route::get('/signup', function () {
+
+    return view('auth.register');
+
+})->name('signup');
+
 Route::get('/profile', function () {
     return view('profile.index');
 });

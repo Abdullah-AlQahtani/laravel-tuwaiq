@@ -5,7 +5,11 @@
 @section('content')
 
 <div class="container">
-
+@if(Session::has('message'))
+    <div class="col-xl-9 d-flex justify-content-center">
+        <div class="alert alert-danger">{{ Session::get('message') }}</div>
+    </div>
+@endif
   <div class="row  d-flex justify-content-center">
     <div class="col-md-4 order-md-2 mb-4">
       <h4 class="d-flex justify-content-between align-items-center mb-3">
